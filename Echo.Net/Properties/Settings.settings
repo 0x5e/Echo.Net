@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Echo.Net.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Server_IP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="Server_Port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">60000</Value>
+    </Setting>
+    <Setting Name="ReconnectSecond" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="Local_Port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

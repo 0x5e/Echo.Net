@@ -1,0 +1,8 @@
+﻿<Window x:Class="Echo.Net.Screen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="屏幕监控" Loaded="Window_Loaded" Closing="Window_Closing" Width="800" Height="600">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Image Name="monitor" HorizontalAlignment="Left" VerticalAlignment="Top" MouseEnter="Screen_MouseEnter" MouseDown="Screen_MouseButton" MouseUp="Screen_MouseButton" KeyDown="Screen_KeyBoard" KeyUp="Screen_KeyBoard" />
+    </ScrollViewer>
+</Window>
